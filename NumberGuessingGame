@@ -1,0 +1,76 @@
+import java.util.*;
+import java.util.Random.*;
+
+class NumberGuessingGame
+
+{
+	public static void main(String args[])
+	{
+	Random No =new Random();
+
+	int GuessingNo=No.nextInt(100)+1;
+	int NoOfTries=0;
+	int MaxTries=5;
+	boolean win=false;
+	Scanner input=new Scanner(System.in);
+	int YourScore=0;
+		while(true)
+		{
+			
+		System.out.println("Guess a Number from 1 To 100:-");
+		int InputGuess=input.nextInt();
+		NoOfTries++;
+		
+		if(InputGuess==GuessingNo)
+		{
+		win=true;
+		System.out.println("You Have Guessed a Right Number");
+		break;
+		}
+
+		else if(InputGuess > GuessingNo)
+		{
+		System.out.println("You Have Guessed a Too Large Number");
+		break;
+		}
+
+		else if(InputGuess < GuessingNo)
+		{
+		System.out.println("You Have Guessed a Too Small Number");
+		break;
+		}
+		if(NoOfTries>=MaxTries)
+		{
+		break;
+		}
+
+		if (win)
+		{
+		System.out.println("Congratulations!!!!!,You have found the Number in "+NoOfTries+"Tries");
+		YourScore=MaxTries-NoOfTries+1;
+		System.out.println("You Have Scored "+YourScore+"Out of 5");
+		}
+		else
+		{
+		System.out.println("Sorry!!!,You didn't find the Number.The Number was "+GuessingNo);
+		}
+		
+		System.out.println("Do You Want To Play Again(yes/no)");
+		String PlayAgain=input.next();
+
+		if(PlayAgain=="yes")
+		{
+		main(args);
+		}
+		
+		else
+		{
+		System.out.println("Thanks for Playing Number Guessing Game");
+		}
+
+		}
+
+	}
+
+}
+
